@@ -12,11 +12,11 @@ This project models different types of pens (BallPoint, Gel, Ink) with interchan
 
 ## Design Patterns Used
 
-| Pattern | Where | Purpose |
-|---------|-------|---------|
-| **Strategy** | `OpenCloseStrategy` interface with `CapStrategy` / `ClickStrategy` | Decouples the open/close mechanism from the pen itself, making it interchangeable at runtime |
-| **Factory** | `PenFactory.createPen()` | Centralises pen creation — the client specifies type, colour, and mechanism as strings without knowing concrete classes |
-| **Template Method** | `Pen.write()` calls abstract `getWritingStyle()` | The base class defines the write flow; subclasses only provide their unique writing style |
+| Pattern             | Where                                                              | Purpose                                                                                                                 |
+| ------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| **Strategy**        | `OpenCloseStrategy` interface with `CapStrategy` / `ClickStrategy` | Decouples the open/close mechanism from the pen itself, making it interchangeable at runtime                            |
+| **Factory**         | `PenFactory.createPen()`                                           | Centralises pen creation — the client specifies type, colour, and mechanism as strings without knowing concrete classes |
+| **Template Method** | `Pen.write()` calls abstract `getWritingStyle()`                   | The base class defines the write flow; subclasses only provide their unique writing style                               |
 
 ## SOLID Principles
 
@@ -92,4 +92,3 @@ Pen is closed.
 **Add a new pen type** — Create a class extending `Pen`, implement `getWritingStyle()`, and register it in `PenFactory`.
 
 **Add a new mechanism** — Create a class implementing `OpenCloseStrategy`, and register it in `PenFactory.createStrategy()`.
-# Pen
